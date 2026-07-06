@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Les Retrouvailles de la Teranga Gabonaise — Programme</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+  :root{
+    --navy:#0b1c33;
+    --navy-2:#122844;
+    --cream:#faf6ec;
+    --gold:#c89b3c;
+    --gold-soft:#e8c876;
+    --green:#1f6f4a;
+    --blue:#1d4e89;
+    --ink:#1a1a1a;
+    --muted:#6b6459;
+    --line: rgba(11,28,51,0.12);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:'Fraunces',serif;
+    letter-spacing:-0.01em;
+  }
+  .eyebrow{
+    font-size:11px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    font-weight:700;
+    color:var(--gold-soft);
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background:
+      radial-gradient(120% 90% at 100% 0%, rgba(200,155,60,0.16), transparent 55%),
+      radial-gradient(120% 90% at 0% 100%, rgba(31,111,74,0.18), transparent 55%),
+      linear-gradient(180deg, var(--navy), var(--navy-2));
+    color:#f4efe2;
+    padding:52px 24px 40px;
+    position:relative;
+    overflow:hidden;
+  }
+  .tri-bar{
+    display:flex;
+    height:4px;
+    width:120px;
+    border-radius:2px;
+    overflow:hidden;
+    margin-bottom:22px;
+  }
+  .tri-bar span{flex:1;}
+  .tri-bar span:nth-child(1){background:var(--green);}
+  .tri-bar span:nth-child(2){background:var(--gold);}
+  .tri-bar span:nth-child(3){background:var(--blue);}
+
+  .hero .kicker{
+    font-size:13px;
+    color:#c9c2af;
+    letter-spacing:0.02em;
+    margin:0 0 6px;
+  }
+  .hero h1{
+    font-size:clamp(2.1rem, 8vw, 3.1rem);
+    line-height:1.05;
+    margin:0 0 26px;
+    font-weight:600;
+  }
+  .hero h1 .accent{color:var(--gold-soft); font-style:italic; font-weight:500;}
+
+  .hero-meta{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:16px;
+    border-top:1px solid rgba(244,239,226,0.14);
+    padding-top:20px;
+  }
+  .meta-item .eyebrow{margin-bottom:4px;}
+  .meta-item .val{font-size:16px; font-weight:600;}
+  .meta-item .sub{font-size:14px; color:#c9c2af; margin-top:2px;}
+
+  .patronage{
+    margin-top:24px;
+    padding-top:20px;
+    border-top:1px solid rgba(244,239,226,0.14);
+  }
+  .patronage .name{
+    font-family:'Fraunces',serif;
+    font-style:italic;
+    font-size:15px;
+    color:var(--gold-soft);
+    margin:2px 0 10px;
+  }
+  .patronage .role{font-size:12.5px; color:#a8a290;}
+
+  /* ---------- QR / SHARE STRIP ---------- */
+  .qr-strip{
+    margin:-1px 16px 0;
+    background:var(--cream);
+    border-radius:18px 18px 0 0;
+    padding:22px 20px 26px;
+    display:flex;
+    align-items:center;
+    gap:16px;
+    box-shadow:0 -10px 30px rgba(11,28,51,0.08);
+    position:relative;
+    z-index:2;
+    transform: translateY(-1px);
+  }
+  #qrcode{
+    flex:none;
+    width:92px; height:92px;
+    background:#fff;
+    border-radius:10px;
+    padding:6px;
+    border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;
+  }
+  #qrcode img{display:block; width:100%; height:100%;}
+  .qr-copy .t{font-weight:700; font-size:14.5px;}
+  .qr-copy .s{font-size:13px; color:var(--muted); margin-top:3px; line-height:1.4;}
+
+  /* ---------- PROGRAM ---------- */
+  .program{
+    max-width:760px;
+    margin:0 auto;
+    padding:8px 20px 20px;
+  }
+  .section-head{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    margin:36px 0 4px;
+  }
+  .section-head h2{font-size:1.5rem; margin:0; font-weight:600;}
+  .tag{
+    font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase;
+    padding:6px 12px; border-radius:999px; color:#fff; white-space:nowrap;
+  }
+  .tag.forum{background:var(--green);}
+  .tag.gala{background:var(--blue);}
+  .section-sub{font-size:13.5px; color:var(--muted); margin:2px 0 20px;}
+
+  .timeline{
+    position:relative;
+    padding-left:26px;
+  }
+  .timeline::before{
+    content:"";
+    position:absolute;
+    left:5px; top:6px; bottom:6px;
+    width:2px;
+    background:linear-gradient(180deg, var(--green), var(--blue));
+    opacity:0.35;
+  }
+  .item{
+    position:relative;
+    padding-bottom:24px;
+    opacity:0;
+    transform:translateY(8px);
+    animation:rise 0.5s ease forwards;
+  }
+  .item:last-child{padding-bottom:2px;}
+  .item::before{
+    content:"";
+    position:absolute;
+    left:-25px; top:5px;
+    width:11px; height:11px;
+    border-radius:50%;
+    background:var(--dot, var(--green));
+    box-shadow:0 0 0 4px var(--cream);
+  }
+  .item .time{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:15px;
+    color:var(--navy);
+    display:inline-block;
+    min-width:54px;
+  }
+  .item .title{font-weight:700; font-size:15px; margin:2px 0 2px;}
+  .item .desc{font-size:13.5px; color:var(--muted); line-height:1.5;}
+  .item.highlight .title{color:var(--gold); }
+  @keyframes rise{ to{opacity:1; transform:translateY(0);} }
+
+  .transition-note{
+    margin:8px 0 4px;
+    padding:14px 16px;
+    background:rgba(200,155,60,0.1);
+    border:1px dashed rgba(200,155,60,0.5);
+    border-radius:12px;
+    font-size:13.5px;
+    color:#7a5f22;
+  }
+
+  footer{
+    text-align:center;
+    padding:30px 20px 44px;
+    color:var(--muted);
+  }
+  footer .quote{
+    font-family:'Fraunces',serif;
+    font-style:italic;
+    font-size:16px;
+    color:var(--navy);
+    max-width:460px;
+    margin:0 auto 14px;
+    line-height:1.5;
+  }
+  footer .contact{font-size:13.5px; font-weight:600;}
+  footer .contact a{color:var(--navy); text-decoration:none;}
+
+  @media (min-width:640px){
+    .hero{padding:64px 48px 48px;}
+    .hero-meta{grid-template-columns:repeat(3,auto); gap:36px;}
+    .qr-strip{margin:-1px 40px 0; border-radius:22px 22px 0 0; padding:26px 32px 30px;}
+    .program{padding:8px 48px 20px;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .item{animation:none; opacity:1; transform:none;}
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="tri-bar"><span></span><span></span><span></span></div>
+  <p class="kicker">Édition inaugurale · 2026</p>
+  <h1>Les Retrouvailles<br>de la <span class="accent">Teranga Gabonaise</span></h1>
+
+  <div class="hero-meta">
+    <div class="meta-item">
+      <p class="eyebrow">Date</p>
+      <p class="val">Samedi 18 juillet 2026</p>
+    </div>
+    <div class="meta-item">
+      <p class="eyebrow">Lieu</p>
+      <p class="val">Salle Pelé</p>
+      <p class="sub">Stade d'Angondjé</p>
+    </div>
+    <div class="meta-item">
+      <p class="eyebrow">Invité d'honneur</p>
+      <p class="val">M. Abass FALL</p>
+      <p class="sub">Maire de Dakar</p>
+    </div>
+  </div>
+
+  <div class="patronage">
+    <p class="eyebrow">Haut parrainage</p>
+    <p class="name">S.E. Régis ONANGA NDIAYE</p>
+    <p class="role">Président de l'Assemblée Nationale</p>
+  </div>
+</div>
+
+<div class="qr-strip">
+  <div id="qrcode" aria-label="QR code d'accès au programme"></div>
+  <div class="qr-copy">
+    <p class="t">Scannez pour retrouver ce programme</p>
+    <p class="s">Ce QR code renvoie vers l'adresse de cette page — partagez-le sur vos invitations et affiches.</p>
+  </div>
+</div>
+
+<div class="program">
+
+  <div class="section-head">
+    <h2>Forum</h2>
+    <span class="tag forum">Après-midi</span>
+  </div>
+  <p class="section-sub">Salle Pelé · Stade d'Angondjé</p>
+
+  <div class="timeline" style="--dot:var(--green)">
+    <div class="item">
+      <span class="time">15h00</span>
+      <p class="title">Accueil &amp; Enregistrement</p>
+      <p class="desc">Badges · programme de la soirée</p>
+    </div>
+    <div class="item">
+      <span class="time">15h30</span>
+      <p class="title">Cérémonie d'Ouverture</p>
+      <p class="desc">Allocutions · Charte fondatrice</p>
+    </div>
+    <div class="item">
+      <span class="time">16h00</span>
+      <p class="title">Panel 1 — Entrepreneuriat</p>
+      <p class="desc">Partenariats croisés Gabon–Sénégal</p>
+    </div>
+    <div class="item">
+      <span class="time">17h00</span>
+      <p class="title">Panel 2 — Innovation &amp; IA</p>
+      <p class="desc">Souveraineté numérique</p>
+    </div>
+    <div class="item">
+      <span class="time">17h45</span>
+      <p class="title">Panel 3 — Leadership</p>
+      <p class="desc">Réseautage · gouvernance</p>
+    </div>
+    <div class="item">
+      <span class="time">18h30</span>
+      <p class="title">Networking &amp; Exposition</p>
+      <p class="desc">Stands · cocktail de bienvenue</p>
+    </div>
+    <div class="item">
+      <span class="time">19h30</span>
+      <p class="title">Transition — Gala</p>
+      <p class="desc">Accueil VIP · espace de prestige</p>
+    </div>
+  </div>
+
+  <div class="transition-note">La soirée bascule vers le Gala de la Fraternité — même lieu, tenue de gala.</div>
+
+  <div class="section-head">
+    <h2>Gala de la Fraternité</h2>
+    <span class="tag gala">Soirée</span>
+  </div>
+  <p class="section-sub">Salle Pelé · Stade d'Angondjé</p>
+
+  <div class="timeline" style="--dot:var(--blue)">
+    <div class="item">
+      <span class="time">20h00</span>
+      <p class="title">Ouverture du Gala</p>
+      <p class="desc">Tapis rouge · photos officielles · MC</p>
+    </div>
+    <div class="item">
+      <span class="time">20h15</span>
+      <p class="title">Dîner de Gala</p>
+      <p class="desc">Thiéboudiène · Nyembwe · Dibiterie</p>
+    </div>
+    <div class="item">
+      <span class="time">21h15</span>
+      <p class="title">Parcours Inspirants</p>
+      <p class="desc">Vidéo des talents distingués</p>
+    </div>
+    <div class="item highlight">
+      <span class="time">21h30</span>
+      <p class="title">Distinctions des Talents</p>
+      <p class="desc">Gessiens · Partenaires · Initiatives citoyennes de l'année</p>
+    </div>
+    <div class="item">
+      <span class="time">22h30</span>
+      <p class="title">Séquence Artistique</p>
+      <p class="desc">Rétro GS · Artiste sénégalais · Dédicaces au Parrain · Awards</p>
+    </div>
+    <div class="item">
+      <span class="time">23h30</span>
+      <p class="title">Networking &amp; Clôture</p>
+      <p class="desc">Annuaire des Anciens · mot de clôture</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p class="quote">« Inspirer aujourd'hui, bâtir demain, célébrer l'excellence sénégalaise au Gabon. »</p>
+  <p class="contact"><a href="tel:+24162424606">+241 62 424 606</a> · <a href="tel:+241074620992">074 620 992</a></p>
+</footer>
+
+<script>
+  // Génère le QR code vers l'URL réelle de la page une fois déployée
+  new QRCode(document.getElementById("qrcode"), {
+    text: window.location.href,
+    width: 160,
+    height: 160,
+    colorDark: "#0b1c33",
+    colorLight: "#ffffff",
+    correctLevel: QRCode.CorrectLevel.M
+  });
+
+  // Petite animation d'apparition en cascade
+  document.querySelectorAll('.item').forEach((el, i) => {
+    el.style.animationDelay = (i * 0.06) + 's';
+  });
+</script>
+
+</body>
+</html>
